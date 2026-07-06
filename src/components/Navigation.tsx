@@ -51,12 +51,12 @@ export default function Navigation() {
           <span className="nl">Remote<span className="nl-bold">Vakil</span></span>
         </a>
         <ul className="nav-links">
-          <li><a href="#services" onClick={(e) => scrollToSection(e, 'services')}>Services</a></li>
-          <li><a href="#trust" onClick={(e) => scrollToSection(e, 'trust')}>Why Us</a></li>
-          <li><a href="#product" onClick={(e) => scrollToSection(e, 'product')}>Platform</a></li>
-          <li><a href="#blog" onClick={(e) => scrollToSection(e, 'blog')}>Insights</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#trust">Why Us</a></li>
+          <li><a href="/#product">Platform</a></li>
+          <li><Link href="/blog">Insights</Link></li>
         </ul>
-        <a href="#ftcta" className="nc" id="nav-cta" onClick={(e) => scrollToSection(e, 'ftcta')}>Consult Now</a>
+        <Link href="/#ftcta" className="nc" id="nav-cta">Consult Now</Link>
       </nav>
       <button 
         id="lp" 
