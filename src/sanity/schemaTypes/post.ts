@@ -20,6 +20,19 @@ export const post = defineType({
       },
     }),
     defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      description: 'A short summary of the post (shown on blog listing cards and in Google search results). Keep it under 160 characters.',
+      rows: 3,
+    }),
+    defineField({
+      name: 'readTime',
+      title: 'Read Time (minutes)',
+      type: 'number',
+      description: 'Estimated reading time in minutes',
+    }),
+    defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
