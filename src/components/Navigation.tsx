@@ -53,7 +53,6 @@ export default function Navigation() {
         <ul className="nav-links">
           <li><a href="/#services">Services</a></li>
           <li><a href="/#trust">Why Us</a></li>
-          <li><a href="/#product">Platform</a></li>
           <li><Link href="/blog">Insights</Link></li>
           <li><a href="/#faq">FAQ</a></li>
         </ul>
@@ -79,7 +78,6 @@ export default function Navigation() {
           <ul className="nav-drawer-links">
             <li><a href="/#services" onClick={() => setMenuOpen(false)}>Services</a></li>
             <li><a href="/#trust" onClick={() => setMenuOpen(false)}>Why Us</a></li>
-            <li><a href="/#product" onClick={() => setMenuOpen(false)}>Platform</a></li>
             <li><Link href="/blog" onClick={() => setMenuOpen(false)}>Insights</Link></li>
             <li><a href="/#faq" onClick={() => setMenuOpen(false)}>FAQ</a></li>
           </ul>
