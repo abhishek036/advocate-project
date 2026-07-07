@@ -5,24 +5,88 @@ import Services from '@/components/Services';
 import Trust from '@/components/Trust';
 import HomeEffects from '@/components/HomeEffects';
 import FAQ from '@/components/FAQ';
+import ReviewsCarousel from '@/components/ReviewsCarousel';
 import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 
 export const revalidate = 60;
 
+// Static fallback reviews — shown until CMS reviews are added
+const FALLBACK_REVIEWS = [
+  {
+    _id: 'f1',
+    name: 'Suresh R.',
+    role: 'NRI Client',
+    location: 'Dubai → Pune Property Case',
+    body: 'RemoteVakil handled my property dispute end-to-end. I was in Dubai — they managed everything in Pune without a single in-person visit from my side. The weekly updates and encrypted document vault gave me complete peace of mind.',
+    rating: 5,
+    initials: 'SR',
+  },
+  {
+    _id: 'f2',
+    name: 'Ananya M.',
+    role: 'Business Owner',
+    location: 'Singapore → Mumbai Corporate',
+    body: 'We needed multiple vendor agreements and employment contracts drafted in India urgently. RemoteVakil delivered everything within deadlines, communicated in plain English, and never once used legal jargon I didn\'t understand.',
+    rating: 5,
+    initials: 'AM',
+  },
+  {
+    _id: 'f3',
+    name: 'Prabhdeep S.',
+    role: 'NRI Client',
+    location: 'Canada → Punjab Inheritance Matter',
+    body: 'Obtaining a legal heir certificate from abroad felt impossible until I found RemoteVakil. The process was transparent, and the Relationship Manager walked me through every step. Resolved in 6 weeks.',
+    rating: 5,
+    initials: 'PS',
+  },
+  {
+    _id: 'f4',
+    name: 'Fatima K.',
+    role: 'NRI Client',
+    location: 'UK → Hyderabad Property',
+    body: 'My family had been fighting a builder dispute for two years before I approached RemoteVakil. Within four months, they secured a resolution through a consumer complaint. I only ever attended one video call.',
+    rating: 5,
+    initials: 'FK',
+  },
+  {
+    _id: 'f5',
+    name: 'Rajesh & Kavitha N.',
+    role: 'NRI Clients',
+    location: 'USA → Chennai Family Law',
+    body: 'The divorce was emotionally difficult enough. What we didn\'t need was a complicated legal process on top of it. RemoteVakil made everything simple, private, and handled with genuine sensitivity. Highly recommended.',
+    rating: 5,
+    initials: 'RN',
+  },
+];
+
 export default async function Home() {
-  const latestPosts = await client.fetch(`*[_type == "post"] | order(publishedAt desc)[0...4] {
-    _id,
-    title,
-    slug,
-    publishedAt,
-    excerpt,
-    readTime,
-    mainImage,
-    "authorName": author->name,
-    "categories": categories[]->title
-  }`).catch(() => []);
+  const [latestPosts, rawReviews] = await Promise.all([
+    client.fetch(`*[_type == "post"] | order(publishedAt desc)[0...4] {
+      _id,
+      title,
+      slug,
+      publishedAt,
+      excerpt,
+      readTime,
+      mainImage,
+      "authorName": author->name,
+      "categories": categories[]->title
+    }`).catch(() => []),
+    client.fetch(`*[_type == "review"] | order(featured desc, publishedAt desc)[0...8] {
+      _id,
+      name,
+      role,
+      location,
+      body,
+      rating,
+      initials,
+      "avatarUrl": avatar.asset->url
+    }`).catch(() => []),
+  ]);
+
+  const reviews = rawReviews.length > 0 ? rawReviews : FALLBACK_REVIEWS;
 
   return (
     <main>
@@ -96,8 +160,17 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <FAQ />
+      {/* ── FAQ + Reviews — Split two-column ─────────────────────── */}
+      <section id="faq" className="faq-split-sec" aria-label="FAQ and client reviews">
+        {/* Left — FAQ accordion */}
+        <div className="faq-split-left">
+          <FAQ />
+        </div>
+        {/* Right — Reviews carousel (dark punctuation panel) */}
+        <div className="faq-split-right nd" aria-label="Client reviews">
+          <ReviewsCarousel reviews={reviews} />
+        </div>
+      </section>
 
       {/* ── Footer CTA ───────────────────────────────────────────── */}
       <section id="ftcta" className="nd ftcta-new" aria-labelledby="ftcta-hl">

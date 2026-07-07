@@ -40,7 +40,7 @@ export default function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="sec faq-sec" aria-labelledby="faq-hl">
+    <div className="sec faq-sec" aria-labelledby="faq-hl">
       <div className="faq-hd">
         <div className="sey-ruled rv">
           <span className="sey-line" />
@@ -81,6 +81,6 @@ export default function FAQ() {
           );
         })}
       </div>
-    </section>
+    </div>
   );
 }
