@@ -30,8 +30,8 @@
   --w-btn:     600;
   --tr:  0.5s ease;  /* Spec: 500ms ease */
   --accent: #2C2C2C;
-  --am: #C8963E;       /* Legal amber */
-  --am-d: #a67830;     /* Amber hover */
+  --am: #0A0A0A;       /* User requested black instead of amber */
+  --am-d: #000000;     /* Black hover */
 }
 
 *, *::before, *::after {
@@ -219,7 +219,7 @@ button {
 .bp { background: var(--nb); color: var(--w); font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 14px 32px; border-radius: var(--r); border: 1px solid var(--nb); transition: all .25s; display: inline-block; }
 .bp:hover { background: var(--bk); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.2); }
 .bp-amber { background: var(--am); border-color: var(--am); }
-.bp-amber:hover { background: var(--am-d); border-color: var(--am-d); box-shadow: 0 8px 32px rgba(200,150,62,.35); }
+.bp-amber:hover { background: var(--am-d); border-color: var(--am-d); box-shadow: 0 8px 32px rgba(0,0,0,.2); }
 
 .bs { background: transparent; color: var(--nb); font-size: .82rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; padding: 14px 32px; border-radius: var(--r); border: 1px solid var(--bl); transition: all .25s; display: inline-block; }
 .bs:hover { border-color: var(--nb); }
@@ -1237,7 +1237,7 @@ button {
   stroke: none;
 }
 .rev-star-filled {
-  fill: var(--am);
+  fill: var(--w);
 }
 
 /* Quote body */
@@ -1262,7 +1262,7 @@ button {
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 900;
-  color: var(--am);
+  color: var(--w);
   line-height: 0;
   vertical-align: -0.28em;
   margin-right: 2px;
@@ -1280,7 +1280,7 @@ button {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--am);
+  background: var(--w);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1297,7 +1297,7 @@ button {
   font-family: var(--ss);
   font-size: .72rem;
   font-weight: 700;
-  color: var(--w);
+  color: var(--nb);
   letter-spacing: .04em;
 }
 .rev-name {
@@ -1346,7 +1346,7 @@ button {
   transition: background .3s, transform .3s;
 }
 .rev-dot-active {
-  background: var(--am);
+  background: var(--w);
   transform: scale(1.4);
 }
 .rev-dot:hover:not(.rev-dot-active) {
@@ -1388,7 +1388,7 @@ button {
 }
 .rev-progress-bar {
   height: 100%;
-  background: var(--am);
+  background: var(--w);
   transform-origin: left center;
   animation: rev-progress 5s linear both;
 }
