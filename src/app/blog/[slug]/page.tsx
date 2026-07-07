@@ -158,7 +158,7 @@ export default async function BlogPost({ params }: Props) {
             <div className="post-footer">
               <Link href="/blog" className="post-back">← Back to Insights</Link>
               <a
-                href="https://wa.me/919999999999?text=Hello%2C%20I%20read%20your%20article%20and%20would%20like%20a%20free%20consultation."
+                href="https://wa.me/919974772427?text=Hello%2C%20I%20read%20your%20article%20and%20would%20like%20a%20free%20consultation."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="post-consult-btn"

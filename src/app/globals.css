@@ -651,11 +651,15 @@ button {
   .hiw-step-content-r { text-align: left; }
   .hiw-connector, .hiw-connector-r { display: none; }
 
-  /* Footer CTA mobile */
-  .ftcta-new { flex-direction: column; padding: 80px 24px 60px; gap: 48px; }
-  .ftcta-right { width: 100%; padding: 0; border-left: none; border-top: 1px solid var(--bd); padding-top: 32px; }
-  .ftcta-stats-mini { flex-direction: column; gap: 16px; }
-  .ftcta-sm-div { width: 40px; height: 1px; background: var(--bd); flex-shrink: 0; }
+  /* Footer CTA mobile — centered layout stacks naturally */
+  .ftcta-new { padding: 72px 24px 56px; }
+  .ftcta-centered { text-align: center; }
+  .fhl { font-size: clamp(40px, 11vw, 64px); line-height: 0.9; }
+  .ftcta-cta-row { flex-direction: column; align-items: center; gap: 12px; }
+  .ftcta-wa-btn { padding: 14px 20px; font-size: .75rem; justify-content: center; width: 100%; max-width: 340px; }
+  .ftcta-email-btn { width: 100%; max-width: 340px; justify-content: center; }
+  .ftcta-stats-row { gap: 24px; flex-wrap: wrap; }
+  .ftcta-sm-div { width: 1px; height: 32px; background: var(--bd); flex-shrink: 0; }
 
   /* Ticker mobile */
   .ticker-wrap { padding: 14px 0; }
@@ -819,35 +823,76 @@ button {
 .ftcta-new {
   display: flex;
   flex-direction: column;
-  padding: 120px 80px 80px;
+  padding: 100px 80px 80px;
+  align-items: center;
+  text-align: center;
 }
-.ftcta-top {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 80px;
-  text-align: left;
+/* Centered layout replaces the old left-right split */
+.ftcta-centered {
   width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
 }
 #ftcta { background: var(--bk); color: var(--w); position: relative; overflow: hidden; border-top: 1px solid var(--bd); }
 
 .ftcta-left { flex: 1; max-width: 540px; }
-.fhl { font-family: var(--sf); font-size: clamp(44px, 6vw, 80px); font-weight: 900; font-optical-sizing: none; font-variation-settings: 'opsz' 96; line-height: 1.0; letter-spacing: -.02em; color: var(--w); margin-bottom: 48px; }
-.fhl em { font-style: italic; font-weight: 900; font-optical-sizing: none; font-variation-settings: 'opsz' 96; }
+/* Centered headline — larger, bolder since it has the full width now */
+.fhl { font-family: var(--sf); font-size: clamp(52px, 8vw, 108px); font-weight: 900; font-optical-sizing: none; font-variation-settings: 'opsz' 96; line-height: 0.88; letter-spacing: -.025em; color: var(--w); margin-bottom: 56px; margin-top: 28px; text-align: center; }
+.fhl em { font-style: italic; font-weight: 900; font-optical-sizing: none; font-variation-settings: 'opsz' 96; display: block; }
 
 .mw { position: relative; display: inline-block; padding: 48px; margin: -48px; }
 #mb { font-family: var(--ss); font-size: .875rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--bk); background: var(--w); padding: 20px 60px; border-radius: var(--r); cursor: pointer; transition: box-shadow .3s; will-change: transform; position: relative; z-index: 1; border: none; }
 #mb:hover { box-shadow: 0 8px 56px rgba(255,255,255,.2); }
 
-.ftcta-right {
-  flex: 1;
-  max-width: 420px;
-  padding-left: 60px;
-  border-left: 1px solid var(--bd);
+/* CTA button row — WhatsApp + Email side by side */
+.ftcta-cta-row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+/* Email CTA button — styled like a secondary pill */
+.ftcta-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: rgba(255,255,255,.7);
+  font-family: var(--ss);
+  font-size: .78rem;
+  font-weight: var(--w-ui);
+  letter-spacing: .04em;
+  padding: 16px 24px;
+  border-radius: var(--r);
+  border: 1px solid rgba(255,255,255,.18);
+  text-decoration: none;
+  transition: border-color .25s, color .25s, background .25s;
+  white-space: nowrap;
+}
+.ftcta-email-btn:hover {
+  border-color: rgba(255,255,255,.5);
+  color: var(--w);
+  background: rgba(255,255,255,.06);
+}
+
+/* Stats row (was stats-mini) */
+.ftcta-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 40px;
-  padding-top: 8px;
+  padding-top: 40px;
+  border-top: 1px solid var(--bd);
+  width: 100%;
 }
 
 /* Testimonial quote block */

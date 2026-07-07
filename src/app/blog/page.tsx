@@ -105,7 +105,7 @@ export default async function BlogIndex() {
             <h2 className="blog-cta-title">Have a legal question?</h2>
             <p className="blog-cta-sub">Our advocates are available for a free 20-minute consultation — no obligation.</p>
             <a
-              href="https://wa.me/919999999999?text=Hello%2C%20I%20read%20an%20article%20on%20RemoteVakil%20and%20would%20like%20a%20free%20consultation."
+              href="https://wa.me/919974772427?text=Hello%2C%20I%20read%20an%20article%20on%20RemoteVakil%20and%20would%20like%20a%20free%20consultation."
               target="_blank"
               rel="noopener noreferrer"
               className="blog-cta-btn"

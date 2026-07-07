@@ -174,19 +174,20 @@ export default async function Home() {
 
       {/* ── Footer CTA ───────────────────────────────────────────── */}
       <section id="ftcta" className="nd ftcta-new" aria-labelledby="ftcta-hl">
-        <div className="ftcta-top">
-          <div className="ftcta-left">
-            <div className="sey-ruled fey-ruled rv">
-              <span className="sey-line sey-line-dim" />
-              <span>Begin Your Consultation</span>
-            </div>
-            <h2 className="fhl rv d1" id="ftcta-hl">
-              Your legal<br />partner,<br /><em>one message away.</em>
-            </h2>
-            <div className="mw rv d2" id="ftcta-mw">
+        <div className="ftcta-centered">
+          <div className="sey-ruled fey-ruled rv" style={{ justifyContent: 'center' }}>
+            <span className="sey-line sey-line-dim" />
+            <span>Begin Your Consultation</span>
+            <span className="sey-line sey-line-dim" />
+          </div>
+          <h2 className="fhl rv d1" id="ftcta-hl">
+            Your legal partner,<br /><em>one message away.</em>
+          </h2>
+          <div className="ftcta-cta-row rv d2">
+            <div className="mw" id="ftcta-mw">
               <a
                 id="mb"
-                href="https://wa.me/919999999999?text=Hello%2C%20I%20would%20like%20to%20book%20a%20free%20consultation%20with%20RemoteVakil."
+                href="https://wa.me/919974772427?text=Hello%2C%20I%20would%20like%20to%20book%20a%20free%20consultation%20with%20RemoteVakil."
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Schedule your consultation via WhatsApp"
@@ -196,37 +197,34 @@ export default async function Home() {
                 WhatsApp — Free Consultation
               </a>
             </div>
-            <p className="ftcta-alt-contact rv d3">
-              Prefer email? <a href="mailto:hello@remotevakil.com" className="ftcta-email-link">hello@remotevakil.com</a>
-            </p>
+            <a
+              href="https://mail.google.com/mail/?view=cm&to=advocatepulkitrastogi@gmail.com&su=Free%20Consultation%20Request"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ftcta-email-btn"
+              aria-label="Email us at advocatepulkitrastogi@gmail.com"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <polyline points="2,4 12,13 22,4"/>
+              </svg>
+              advocatepulkitrastogi@gmail.com
+            </a>
           </div>
-
-          <div className="ftcta-right rv d2">
-            <div className="ftcta-quote">
-              <p className="ftcta-qt">&ldquo;RemoteVakil handled my NRI property dispute end-to-end. I was in Dubai — they managed everything in Pune without a single in-person visit.&rdquo;</p>
-              <div className="ftcta-qm">
-                <div className="ftcta-qavatar">SR</div>
-                <div>
-                  <div className="ftcta-qname">Suresh R.</div>
-                  <div className="ftcta-qrole">NRI Client · Dubai → Pune Property Case</div>
-                </div>
-              </div>
+          <div className="ftcta-stats-row rv d3">
+            <div className="ftcta-sm-item">
+              <span className="ftcta-sm-n">4,200+</span>
+              <span className="ftcta-sm-l">Cases handled</span>
             </div>
-            <div className="ftcta-stats-mini">
-              <div className="ftcta-sm-item">
-                <span className="ftcta-sm-n">4,200+</span>
-                <span className="ftcta-sm-l">Cases handled</span>
-              </div>
-              <div className="ftcta-sm-div" />
-              <div className="ftcta-sm-item">
-                <span className="ftcta-sm-n">98%</span>
-                <span className="ftcta-sm-l">Retention rate</span>
-              </div>
-              <div className="ftcta-sm-div" />
-              <div className="ftcta-sm-item">
-                <span className="ftcta-sm-n">&lt;48h</span>
-                <span className="ftcta-sm-l">First response</span>
-              </div>
+            <div className="ftcta-sm-div" />
+            <div className="ftcta-sm-item">
+              <span className="ftcta-sm-n">98%</span>
+              <span className="ftcta-sm-l">Retention rate</span>
+            </div>
+            <div className="ftcta-sm-div" />
+            <div className="ftcta-sm-item">
+              <span className="ftcta-sm-n">&lt;48h</span>
+              <span className="ftcta-sm-l">First response</span>
             </div>
           </div>
         </div>
@@ -236,7 +234,7 @@ export default async function Home() {
           <Link href="/#trust" className="flnk">Why Us</Link>
           <Link href="/blog" className="flnk">Insights</Link>
           <Link href="/#faq" className="flnk">FAQ</Link>
-          <a href="mailto:hello@remotevakil.com" className="flnk">Contact</a>
+          <a href="https://mail.google.com/mail/?view=cm&to=advocatepulkitrastogi@gmail.com&su=Legal%20Enquiry" target="_blank" rel="noopener noreferrer" className="flnk">Contact</a>
           <a href="#" className="flnk">Privacy Policy</a>
           <a href="#" className="flnk">Terms of Service</a>
         </nav>
@@ -252,7 +250,7 @@ export default async function Home() {
             </svg>
             RemoteVakil
           </span>
-          <span className="fcp">&copy; 2025 RemoteVakil. All rights reserved. Not a law firm. Legal services facilitated through our verified advocate network.</span>
+          <span className="fcp">&copy; 2026 RemoteVakil. All rights reserved. Not a law firm. Legal services facilitated through our verified advocate network.</span>
         </div>
       </section>
     </main>
