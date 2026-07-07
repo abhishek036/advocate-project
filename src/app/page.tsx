@@ -3,7 +3,6 @@ import Hero from '@/components/Hero';
 import Stats from '@/components/Stats';
 import Services from '@/components/Services';
 import Trust from '@/components/Trust';
-import Product from '@/components/Product';
 import HomeEffects from '@/components/HomeEffects';
 import FAQ from '@/components/FAQ';
 import Link from 'next/link';
@@ -56,55 +55,6 @@ export default async function Home() {
       </div>
 
       <Trust />
-      <Product />
-
-      {/* ── Process — Editorial alternating timeline ───────────── */}
-      <section id="hiw" className="sec hiw-sec" aria-labelledby="hiw-hl">
-        <div className="hiwh">
-          <div className="sey-ruled rv">
-            <span className="sey-line" />
-            <span>Process</span>
-          </div>
-          <h2 className="sh rv d1" id="hiw-hl">Onboard in<br /><em>three steps.</em></h2>
-        </div>
-
-        <div className="hiw-timeline">
-          <div className="hiw-spine" aria-hidden="true" />
-
-          <div className="hiw-step hiw-step-left rv d1">
-            <div className="hiw-step-content">
-              <div className="hiw-num-badge">01</div>
-              <h3 className="ht">Brief Your Case</h3>
-              <p className="hd">Complete a structured intake form — no phone calls, no waiting rooms. Your Relationship Manager responds within 4 working hours.</p>
-            </div>
-            <div className="hiw-connector" aria-hidden="true">
-              <div className="hiw-node" />
-            </div>
-          </div>
-
-          <div className="hiw-step hiw-step-right rv d2">
-            <div className="hiw-connector hiw-connector-r" aria-hidden="true">
-              <div className="hiw-node" />
-            </div>
-            <div className="hiw-step-content hiw-step-content-r">
-              <div className="hiw-num-badge">02</div>
-              <h3 className="ht">Meet Your Advocate</h3>
-              <p className="hd">We match you with a verified specialist. A video consultation is scheduled within 48 hours to align on strategy and timelines.</p>
-            </div>
-          </div>
-
-          <div className="hiw-step hiw-step-left rv d3">
-            <div className="hiw-step-content">
-              <div className="hiw-num-badge">03</div>
-              <h3 className="ht">Track &amp; Receive</h3>
-              <p className="hd">Your Digital Case Tracker updates in real time. Documents arrive in your Secure Vault. Monthly briefings keep you fully informed — always.</p>
-            </div>
-            <div className="hiw-connector" aria-hidden="true">
-              <div className="hiw-node" />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── Blog / Insights — Live from Sanity ───────────────────── */}
       <section id="blog" className="sec" aria-labelledby="blog-hl">
@@ -211,7 +161,6 @@ export default async function Home() {
         <nav className="fln" aria-label="Footer navigation">
           <Link href="/#services" className="flnk">Services</Link>
           <Link href="/#trust" className="flnk">Why Us</Link>
-          <Link href="/#product" className="flnk">Platform</Link>
           <Link href="/blog" className="flnk">Insights</Link>
           <Link href="/#faq" className="flnk">FAQ</Link>
           <a href="mailto:hello@remotevakil.com" className="flnk">Contact</a>

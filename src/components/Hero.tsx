@@ -58,15 +58,6 @@ export default function Hero() {
         <div className="hero-vert-line" />
       </div>
 
-      {/* Case tracker */}
-      <div className="tc" role="complementary" aria-label="Digital Case Tracker preview">
-        <div className="th"><span className="tt">Digital Case Tracker</span><span className="tb">Live</span></div>
-        <div className="tcs">
-          <div className="cc"><div className="ci">RV-2024-0041</div><div className="cn">Property Dispute Resolution</div><span className="cs sr">Under Review</span><div className="cb"><div className="cbf" style={{ width: '68%' }}></div></div></div>
-          <div className="cc"><div className="ci">RV-2024-0039</div><div className="cn">Employment Agreement Draft</div><span className="cs sa">Active</span><div className="cb"><div className="cbf" style={{ width: '45%' }}></div></div></div>
-          <div className="cc"><div className="ci">RV-2024-0037</div><div className="cn">Builder Coordination Notice</div><span className="cs sp">Pending</span><div className="cb"><div className="cbf" style={{ width: '92%' }}></div></div></div>
-        </div>
-      </div>
     </section>
   );
 }

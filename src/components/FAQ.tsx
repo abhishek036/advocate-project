@@ -4,7 +4,7 @@ import { useState } from 'react';
 const FAQS = [
   {
     q: "Can you handle my case if I'm living abroad?",
-    a: "Absolutely — that's exactly what RemoteVakil was built for. We work with NRI clients in over 40 countries including the UAE, USA, UK, Canada, Australia, and Singapore. Everything is managed remotely via video calls, WhatsApp, and our Digital Case Tracker. You will never need to book a flight for a legal matter."
+    a: "Absolutely — that's exactly what RemoteVakil was built for. We work with NRI clients in over 40 countries including the UAE, USA, UK, Canada, Australia, and Singapore. Everything is managed remotely via video calls and WhatsApp. You will never need to book a flight for a legal matter."
   },
   {
     q: "Do I need to physically be present in India for my case?",
