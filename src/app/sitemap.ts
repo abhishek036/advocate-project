@@ -4,7 +4,7 @@ import { client } from '../sanity/lib/client'
 export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const BASE = 'https://advocate-project-tau.vercel.app'
+  const BASE = 'https://remotevakil.com'
 
   const posts = await client.fetch(`*[_type == "post"] { slug, publishedAt, _updatedAt }`).catch(() => [])
 

@@ -66,8 +66,8 @@ export default async function BlogPost({ params }: Props) {
     description: post.excerpt || '',
     datePublished: post.publishedAt,
     author: { '@type': 'Person', name: post.authorName || 'RemoteVakil Team' },
-    publisher: { '@type': 'Organization', name: 'RemoteVakil', url: 'https://advocate-project-tau.vercel.app' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://advocate-project-tau.vercel.app/blog/${resolvedParams.slug}` },
+    publisher: { '@type': 'Organization', name: 'RemoteVakil', url: 'https://remotevakil.com' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://remotevakil.com/blog/${resolvedParams.slug}` },
   }
 
   return (

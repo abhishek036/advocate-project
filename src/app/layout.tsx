@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-const SITE_URL = 'https://advocate-project-tau.vercel.app';
+const SITE_URL = 'https://remotevakil.com';
 const SITE_NAME = 'RemoteVakil';
 const DEFAULT_TITLE = 'RemoteVakil — NRI Legal Services & Remote Advocate India';
 const DEFAULT_DESC = 'RemoteVakil connects NRI and foreign clients with verified Indian advocates for property disputes, POA, inheritance, family law, and more. 100% remote, trusted by clients in 40+ countries.';

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Legal Insights — RemoteVakil',
     description: 'Expert articles on Indian property law, NRI legal rights, family law, corporate compliance, and more.',
     type: 'website',
-    url: 'https://advocate-project-tau.vercel.app/blog',
+    url: 'https://remotevakil.com/blog',
   },
   twitter: {
     card: 'summary_large_image',
