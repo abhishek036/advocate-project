@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Trust() {
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function Trust() {
         <h2 className="sh" id="trust-hl">Trust is not declared.<br /><em>It is designed.</em></h2>
       </div>
       <div className="tblk">
-        <div className="tiw"><img src="/trust_advocate.png" alt="Verified advocate reviewing case documents" loading="lazy" /></div>
+        <div className="tiw"><Image src="/trust_advocate.webp" alt="Verified advocate reviewing case documents" width={800} height={600} loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover' }} /></div>
         <div className="tco sf2 vis">
           <div className="tnum">01 / 04</div>
           <h3 className="tft">Verified <em>Advocate</em> Network</h3>
@@ -40,7 +41,7 @@ export default function Trust() {
         </div>
       </div>
       <div className="tblk">
-        <div className="tiw"><img src="/trust_relationship.png" alt="Dedicated relationship manager consulting a client" loading="lazy" /></div>
+        <div className="tiw"><Image src="/trust_relationship.webp" alt="Dedicated relationship manager consulting a client" width={800} height={600} loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover' }} /></div>
         <div className="tco sf2 vis">
           <div className="tnum">02 / 04</div>
           <h3 className="tft">Dedicated <em>Relationship</em> Manager</h3>
@@ -54,7 +55,7 @@ export default function Trust() {
         </div>
       </div>
       <div className="tblk">
-        <div className="tiw"><img src="/trust_vault.png" alt="Secure legal document vault with encryption" loading="lazy" /></div>
+        <div className="tiw"><Image src="/trust_vault.webp" alt="Secure legal document vault with encryption" width={800} height={600} loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover' }} /></div>
         <div className="tco sf2 vis">
           <div className="tnum">03 / 04</div>
           <h3 className="tft">Secure <em>Document</em> Vault</h3>

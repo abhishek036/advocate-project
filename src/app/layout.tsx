@@ -1,5 +1,20 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Bodoni_Moda, DM_Sans } from 'next/font/google';
+
+const bodoniModa = Bodoni_Moda({
+  subsets: ['latin'],
+  axes: ['opsz'],
+  variable: '--font-bodoni',
+  display: 'swap',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  axes: ['opsz'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
 
 const SITE_URL = 'https://remotevakil.com';
 const SITE_NAME = 'RemoteVakil';
@@ -134,7 +149,7 @@ const faqJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${bodoniModa.variable} ${dmSans.variable}`}>
       <head>
         <script
           type="application/ld+json"

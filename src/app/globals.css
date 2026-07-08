@@ -7,8 +7,8 @@
  * Hero opsz 96 → hairline thins + ultra-fat stems (pure drama).
  * Scaling down to opsz 18 on compact contexts → sturdy & legible.
  * All display elements use font-weight 900 to maximise thin/thick contrast.
+ * Fonts are loaded via next/font in layout.tsx (no render-blocking @import)
  */
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..900;1,9..40,100..900&display=swap');
 
 :root {
   --w:   #FFFFFF;
@@ -21,8 +21,8 @@
   --bl:  #E5E5E5;  /* Hairline on white */
   --bd:  rgba(255, 255, 255, 0.10); /* Hairline on dark */
   --r:   4px;      /* Spec: sharp 4px — professional */
-  --sf:  "Bodoni Moda", Georgia, serif;
-  --ss:  "DM Sans", system-ui, sans-serif;
+  --sf:  var(--font-bodoni), Georgia, serif;
+  --ss:  var(--font-dm-sans), system-ui, sans-serif;
   /* DM Sans weight tokens */
   --w-caption: 300;
   --w-body:    400;
