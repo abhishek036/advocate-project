@@ -5,8 +5,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/studio/',
+      disallow: ['/studio/', '/studio-login/'],
     },
-    sitemap: 'https://advocate-project-tau.vercel.app/sitemap.xml',
+    sitemap: 'https://remotevakil.com/sitemap.xml',
   }
 }
+
