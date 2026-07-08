@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 
 const SITE_URL = 'https://remotevakil.com';
 const SITE_NAME = 'RemoteVakil';
-const DEFAULT_TITLE = 'RemoteVakil — NRI Legal Services & Remote Advocate India';
+const DEFAULT_TITLE = 'RemoteVakil-Your Legal Representative';
 const DEFAULT_DESC = 'RemoteVakil connects NRI and foreign clients with verified Indian advocates for property disputes, POA, inheritance, family law, and more. 100% remote, trusted by clients in 40+ countries.';
 
 export const metadata: Metadata = {
