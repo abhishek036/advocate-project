@@ -1,14 +1,19 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { client } from '../../sanity/lib/client'
 import { urlForImage } from '../../sanity/lib/image'
 import Navigation from '../../components/Navigation'
+import Footer from '../../components/Footer'
 import type { Metadata } from 'next'
 
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Legal Insights — RemoteVakil',
+  title: 'Legal Insights',
   description: 'Expert articles on Indian property law, NRI legal rights, family law, corporate compliance, and more. Written by practising advocates for foreign clients navigating Indian law.',
+  alternates: {
+    canonical: 'https://remotevakil.com/blog',
+  },
   openGraph: {
     title: 'Legal Insights — RemoteVakil',
     description: 'Expert articles on Indian property law, NRI legal rights, family law, corporate compliance, and more.',
@@ -21,6 +26,7 @@ export const metadata: Metadata = {
     description: 'Expert articles on Indian property law, NRI legal rights, and more.',
   },
 }
+
 
 export default async function BlogIndex() {
   const posts = await client.fetch(`*[_type == "post"] | order(publishedAt desc) {
@@ -66,11 +72,14 @@ export default async function BlogIndex() {
                   <Link href={`/blog/${post.slug?.current}`} key={post._id} className={`blog-card${idx === 0 ? ' blog-card-featured' : ''}`}>
                     <div className="blog-card-img-wrap">
                       {post.mainImage ? (
-                        <img
+                        <Image
                           src={urlForImage(post.mainImage)?.url() || ''}
                           alt={post.title}
+                          width={600}
+                          height={400}
                           loading="lazy"
                           className="blog-card-img"
+                          style={{ objectFit: 'cover' }}
                         />
                       ) : (
                         <div className="blog-card-img-placeholder">
@@ -116,6 +125,7 @@ export default async function BlogIndex() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   )
 }

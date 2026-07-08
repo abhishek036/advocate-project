@@ -2,6 +2,7 @@ import { PortableText } from '@portabletext/react'
 import { client } from '../../../sanity/lib/client'
 import { urlForImage } from '../../../sanity/lib/image'
 import Navigation from '../../../components/Navigation'
+import Footer from '../../../components/Footer'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -12,27 +13,33 @@ type Props = { params: Promise<{ slug: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params
   const post = await client.fetch(
-    `*[_type == "post" && slug.current == $slug][0] { title, excerpt, mainImage }`,
+    `*[_type == "post" && slug.current == $slug][0] { title, excerpt, mainImage, publishedAt, _updatedAt }`,
     { slug: resolvedParams.slug }
   )
-  if (!post) return { title: 'Post Not Found — RemoteVakil' }
+  if (!post) return { title: 'Post Not Found' }
   const imageUrl = post.mainImage ? urlForImage(post.mainImage)?.width(1200).height(630).url() : undefined
   return {
-    title: `${post.title} — RemoteVakil`,
+    title: post.title,
     description: post.excerpt || 'Read this article on RemoteVakil — expert legal insights for NRI and foreign clients navigating Indian law.',
+    alternates: {
+      canonical: `https://remotevakil.com/blog/${resolvedParams.slug}`,
+    },
     openGraph: {
-      title: `${post.title} — RemoteVakil`,
+      title: post.title,
       description: post.excerpt || '',
       type: 'article',
+      url: `https://remotevakil.com/blog/${resolvedParams.slug}`,
       images: imageUrl ? [{ url: imageUrl, width: 1200, height: 630 }] : [],
+      publishedTime: post.publishedAt || post._updatedAt,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${post.title} — RemoteVakil`,
+      title: post.title,
       description: post.excerpt || '',
     },
   }
 }
+
 
 export default async function BlogPost({ params }: Props) {
   const query = `*[_type == "post" && slug.current == $slug][0] {
@@ -64,7 +71,8 @@ export default async function BlogPost({ params }: Props) {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt || '',
-    datePublished: post.publishedAt,
+    datePublished: post.publishedAt || post._updatedAt || new Date().toISOString(),
+    dateModified: post._updatedAt || post.publishedAt || new Date().toISOString(),
     author: { '@type': 'Person', name: post.authorName || 'RemoteVakil Team' },
     publisher: { '@type': 'Organization', name: 'RemoteVakil', url: 'https://remotevakil.com' },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://remotevakil.com/blog/${resolvedParams.slug}` },
@@ -171,6 +179,7 @@ export default async function BlogPost({ params }: Props) {
           </div>
         </article>
       </main>
+      <Footer />
     </>
   )
 }
