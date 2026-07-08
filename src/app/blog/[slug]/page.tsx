@@ -10,9 +10,10 @@ export const revalidate = 60
 type Props = { params: { slug: string } }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params
   const post = await client.fetch(
     `*[_type == "post" && slug.current == $slug][0] { title, excerpt, mainImage }`,
-    { slug: params.slug }
+    { slug: resolvedParams.slug }
   )
   if (!post) return { title: 'Post Not Found — RemoteVakil' }
   const imageUrl = post.mainImage ? urlForImage(post.mainImage)?.width(1200).height(630).url() : undefined
@@ -46,7 +47,8 @@ export default async function BlogPost({ params }: Props) {
     "categories": categories[]->title
   }`
 
-  const post = await client.fetch(query, { slug: params.slug })
+  const resolvedParams = await params
+  const post = await client.fetch(query, { slug: resolvedParams.slug })
 
   if (!post) {
     return (
@@ -65,7 +67,7 @@ export default async function BlogPost({ params }: Props) {
     datePublished: post.publishedAt,
     author: { '@type': 'Person', name: post.authorName || 'RemoteVakil Team' },
     publisher: { '@type': 'Organization', name: 'RemoteVakil', url: 'https://advocate-project-tau.vercel.app' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://advocate-project-tau.vercel.app/blog/${params.slug}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://advocate-project-tau.vercel.app/blog/${resolvedParams.slug}` },
   }
 
   return (
