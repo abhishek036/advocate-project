@@ -1,11 +1,13 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import ContactModal from './ContactModal';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [lpOn, setLpOn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,6 +57,7 @@ export default function Navigation() {
           <li><a href="/#trust">Why Us</a></li>
           <li><Link href="/blog">Insights</Link></li>
           <li><a href="/#faq">FAQ</a></li>
+          <li><a href="#" onClick={(e) => { e.preventDefault(); setContactModalOpen(true); }}>Contact</a></li>
         </ul>
         <Link href="/#ftcta" className="nc" id="nav-cta">Consult Now</Link>
 
@@ -80,6 +83,7 @@ export default function Navigation() {
             <li><a href="/#trust" onClick={() => setMenuOpen(false)}>Why Us</a></li>
             <li><Link href="/blog" onClick={() => setMenuOpen(false)}>Insights</Link></li>
             <li><a href="/#faq" onClick={() => setMenuOpen(false)}>FAQ</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setContactModalOpen(true); }}>Contact</a></li>
           </ul>
           <a
             href="https://wa.me/919974772427?text=Hello%2C%20I%20would%20like%20to%20book%20a%20free%20consultation."
@@ -99,10 +103,12 @@ export default function Navigation() {
         id="lp"
         className={lpOn ? 'show' : ''}
         aria-label="Book a free consultation"
-        onClick={scrollToCTA}
+        onClick={() => setContactModalOpen(true)}
       >
         <span className="pd"></span>Free Consultation — Book Now
       </button>
+
+      <ContactModal isOpen={contactModalOpen} onClose={() => setContactModalOpen(false)} />
     </>
   );
 }

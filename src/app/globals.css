@@ -1403,3 +1403,94 @@ button {
   .rev-wrap { padding: 56px 24px 48px; }
   .rev-sh { font-size: clamp(22px, 6vw, 32px) !important; }
 }
+
+/* ============================================================
+   Contact Modal
+   ============================================================ */
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.contact-modal-content {
+  background: var(--w);
+  color: var(--nb);
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: var(--r);
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.contact-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: var(--mu);
+  transition: var(--tr);
+}
+.contact-modal-close:hover {
+  color: var(--nb);
+}
+.contact-modal-content h2 {
+  font-family: var(--sf);
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.contact-modal-content p {
+  color: var(--mu);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+.contact-form .form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.contact-form label {
+  font-size: 0.85rem;
+  font-weight: var(--w-ui);
+  margin-bottom: 5px;
+  color: var(--nb);
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid var(--bl);
+  border-radius: var(--r);
+  font-family: var(--ss);
+  font-size: 1rem;
+  background: var(--ow);
+  transition: var(--tr);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--nb);
+  background: var(--w);
+}
+.contact-form .submit-btn {
+  background: var(--nb);
+  color: var(--w);
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: var(--w-btn);
+  border-radius: var(--r);
+  margin-top: 10px;
+  transition: var(--tr);
+}
+.contact-form .submit-btn:hover {
+  background: var(--bk);
+}
+.contact-modal-success {
+  text-align: center;
+  padding: 40px 0;
+}
