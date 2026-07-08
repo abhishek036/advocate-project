@@ -35,15 +35,11 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
 
   const next = () => goTo((active + 1) % total, 'next');
   const back = () => goTo((active - 1 + total) % total, 'prev');
-
-  // Auto-advance
   useEffect(() => {
     if (paused || total < 2) return;
     timerRef.current = setTimeout(next, AUTO_INTERVAL);
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [active, paused, total]);
-
-  // Keyboard navigation
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') next();

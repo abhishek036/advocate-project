@@ -20,8 +20,7 @@ export async function studioLogin(formData: FormData) {
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'strict',
     path: '/',
-    // Session cookie (expires when browser closes) — no persistent storage
-    maxAge: 60 * 60 * 8, // 8 hours
+    maxAge: 60 * 60 * 8,
   })
 
   redirect(from)

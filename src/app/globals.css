@@ -1,15 +1,3 @@
-/*
- * TYPOGRAPHIC SYSTEM
- * Display  — Bodoni Moda (variable, opsz 6–96)  – Vogue / Harper's Bazaar luxury serif
- * Body     — DM Sans    (variable, opsz 9–40)   – Colophon Foundry for Google, premium humanist
- *
- * Strategy: font-variation-settings: 'opsz' <value> drives letterform reshaping.
- * Hero opsz 96 → hairline thins + ultra-fat stems (pure drama).
- * Scaling down to opsz 18 on compact contexts → sturdy & legible.
- * All display elements use font-weight 900 to maximise thin/thick contrast.
- * Fonts are loaded via next/font in layout.tsx (no render-blocking @import)
- */
-
 :root {
   --w:   #FFFFFF;
   --ow:  #FAFAFA;

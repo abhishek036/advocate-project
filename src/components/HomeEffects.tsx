@@ -6,7 +6,6 @@ export default function HomeEffects() {
   const mbRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    // Intersection observer for visibility animations
     const ro = new IntersectionObserver(es => {
       es.forEach(e => {
         if (e.isIntersecting) {
@@ -17,7 +16,6 @@ export default function HomeEffects() {
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.rv, .sf2').forEach(el => ro.observe(el));
 
-    // Footer mouse effect
     const mw = document.getElementById('ftcta-mw') as HTMLDivElement;
     const mb = document.getElementById('mb') as HTMLButtonElement;
     if (mw && mb) {

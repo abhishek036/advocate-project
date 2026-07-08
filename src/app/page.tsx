@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   },
 };
 
-// FAQ JSON-LD — scoped to homepage only
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -69,7 +68,6 @@ const faqJsonLd = {
 };
 
 
-// Static fallback reviews — shown until CMS reviews are added
 const FALLBACK_REVIEWS = [
   {
     _id: 'f1',
@@ -154,7 +152,6 @@ export default async function Home() {
       <Stats />
       <Services />
 
-      {/* ── Scrolling brand ticker ─────────────────────────────── */}
       <div className="ticker-wrap" aria-hidden="true">
         <div className="ticker-track">
           {[...Array(3)].map((_, i) => (
@@ -178,7 +175,6 @@ export default async function Home() {
 
       <Trust />
 
-      {/* ── Blog / Insights — Live from Sanity ───────────────────── */}
       <section id="blog" className="sec" aria-labelledby="blog-hl">
         <div className="blgh">
           <div>
@@ -207,7 +203,6 @@ export default async function Home() {
               </div>
             </Link>
           )) : (
-            // Fallback static cards when no Sanity posts exist yet
             <>
               <article className="bca rv" role="listitem"><div className="bci"><img src="/blog_property.webp" alt="Property law" loading="lazy"/></div><div className="bcb"><div className="bctg">Property Law</div><h3 className="bcti">What Every Homebuyer Must Know Before Signing a Builder Agreement</h3><p className="bcd">Builder agreements are rarely buyer-friendly in their draft form. Here are the 7 clauses you must negotiate before the ink dries.</p><div className="bcm"><span>Adv. Priya Mehta</span><span className="bcs"></span><span>8 min read</span></div></div></article>
               <article className="bca rv d1" role="listitem"><div className="bcb"><div className="bctg">Employment</div><h3 className="bcti">Non-Compete Clauses in India: Enforceable or Unenforceable?</h3><p className="bcd">The Supreme Court's position has evolved. What your current employment contract says — and what it means under Section 27.</p><div className="bcm"><span>Adv. Rohan Sinha</span><span className="bcs"></span><span>5 min read</span></div></div></article>
@@ -218,13 +213,10 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── FAQ + Reviews — Split two-column ─────────────────────── */}
       <section id="faq" className="faq-split-sec" aria-label="FAQ and client reviews">
-        {/* Left — FAQ accordion */}
         <div className="faq-split-left">
           <FAQ />
         </div>
-        {/* Right — Reviews carousel (dark punctuation panel) */}
         <div className="faq-split-right nd" aria-label="Client reviews">
           <ReviewsCarousel reviews={reviews} />
         </div>
