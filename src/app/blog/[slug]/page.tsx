@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 
 export const revalidate = 60
 
-type Props = { params: { slug: string } }
+type Props = { params: Promise<{ slug: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params
