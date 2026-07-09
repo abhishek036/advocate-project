@@ -41,7 +41,7 @@ const SERVICES = [
       'Domestic violence proceedings',
       'Maintenance matters',
       'Marriage registration assistance',
-      'NRI marriage legal issues',
+      'Cross-border marriage legal issues',
     ],
   },
   {

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <section id="ftcta" className="nd ftcta-new" aria-labelledby="ftcta-hl">
+    <section id="ftcta" className="nd-deep ftcta-new" aria-labelledby="ftcta-hl">
       <div className="ftcta-centered">
         <div className="sey-ruled fey-ruled rv" style={{ justifyContent: 'center' }}>
           <span className="sey-line sey-line-dim" />

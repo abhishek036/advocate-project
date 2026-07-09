@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const imageUrl = post.mainImage ? urlForImage(post.mainImage)?.width(1200).height(630).url() : undefined
   return {
     title: post.title,
-    description: post.excerpt || 'Read this article on RemoteVakil — expert legal insights for NRI and foreign clients navigating Indian law.',
+    description: post.excerpt || 'Read this article on RemoteVakil — expert legal insights for clients navigating Indian law.',
     alternates: {
       canonical: `https://remotevakil.com/blog/${resolvedParams.slug}`,
     },

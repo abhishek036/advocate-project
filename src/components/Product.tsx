@@ -1,6 +1,6 @@
 export default function Product() {
   return (
-    <section id="product" className="nd" aria-labelledby="prod-hl">
+    <section id="product" className="nd-deep" aria-labelledby="prod-hl">
       <div className="phd">
         <p className="sey rv vis">The Platform</p>
         <h2 className="sh rv d1 vis" id="prod-hl">Engineered for<br /><em>clarity.</em></h2>

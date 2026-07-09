@@ -10,20 +10,20 @@ export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Legal Insights',
-  description: 'Expert articles on Indian property law, NRI legal rights, family law, corporate compliance, and more. Written by practising advocates for foreign clients navigating Indian law.',
+  description: 'Expert articles on Indian property law, family law, corporate compliance, and more. Written by practising advocates.',
   alternates: {
     canonical: 'https://remotevakil.com/blog',
   },
   openGraph: {
     title: 'Legal Insights — RemoteVakil',
-    description: 'Expert articles on Indian property law, NRI legal rights, family law, corporate compliance, and more.',
+    description: 'Expert articles on Indian property law, family law, corporate compliance, and more.',
     type: 'website',
     url: 'https://remotevakil.com/blog',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Legal Insights — RemoteVakil',
-    description: 'Expert articles on Indian property law, NRI legal rights, and more.',
+    description: 'Expert articles on Indian property law, family law, and more.',
   },
 }
 
@@ -55,7 +55,7 @@ export default async function BlogIndex() {
               <span>Legal Insights</span>
             </div>
             <h1 className="blog-hero-title">The RemoteVakil<br /><em>Dispatch.</em></h1>
-            <p className="blog-hero-sub">In-depth articles by practising advocates — covering NRI property rights, family law, corporate compliance, and more.</p>
+            <p className="blog-hero-sub">In-depth articles by practising advocates — covering property rights, family law, corporate compliance, and more.</p>
           </div>
         </section>
 

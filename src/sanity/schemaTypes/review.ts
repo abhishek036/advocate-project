@@ -15,7 +15,7 @@ export const review = defineType({
       name: 'role',
       title: 'Role / Designation',
       type: 'string',
-      description: 'e.g. "NRI Client" or "Business Owner"',
+      description: 'e.g. "Client" or "Business Owner"',
     }),
     defineField({
       name: 'location',

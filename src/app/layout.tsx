@@ -18,8 +18,8 @@ const dmSans = DM_Sans({
 
 const SITE_URL = 'https://remotevakil.com';
 const SITE_NAME = 'RemoteVakil';
-const DEFAULT_TITLE = 'RemoteVakil-Your Legal Representative';
-const DEFAULT_DESC = 'RemoteVakil connects NRI and foreign clients with verified Indian advocates for property disputes, POA, inheritance, family law, and more. 100% remote, trusted by clients in 40+ countries.';
+const DEFAULT_TITLE = 'RemoteVakil - Your Legal Representative in India';
+const DEFAULT_DESC = 'Your legal representative in India, wherever you are. RemoteVakil offers professional legal representation services to ensure your rights are protected.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -29,17 +29,17 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESC,
   keywords: [
-    'NRI legal services India',
+    'legal services India',
     'remote advocate India',
-    'NRI property dispute lawyer',
-    'power of attorney India NRI',
-    'Indian lawyer for foreigners',
-    'NRI legal help',
+    'property dispute lawyer India',
+    'power of attorney India',
+    'Indian lawyer online',
+    'legal help India',
     'property lawyer India remote',
-    'NRI legal consultation online',
-    'Indian property law NRI',
-    'legal services for Indians abroad',
-    'NRI family law India',
+    'legal consultation online India',
+    'Indian property law',
+    'legal services online',
+    'family law India',
     'hire Indian advocate online',
   ],
   authors: [{ name: 'RemoteVakil' }],
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: 'RemoteVakil — NRI Legal Services India',
+        alt: 'RemoteVakil — Legal Services in India',
       },
     ],
   },
@@ -104,7 +104,7 @@ const organizationJsonLd = {
   },
   availableLanguage: ['English', 'Hindi'],
   serviceType: [
-    'NRI Legal Services',
+    'Legal Services',
     'Property Law',
     'Power of Attorney',
     'Family Law',
@@ -119,10 +119,10 @@ const faqJsonLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: "Can you handle my case if I'm living abroad?",
+      name: "Can I manage my case remotely?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Absolutely — RemoteVakil was built for NRI clients. We work with clients in over 40 countries including the UAE, USA, UK, Canada, and Australia. Everything is managed remotely.",
+        text: "Absolutely. RemoteVakil is built for remote representation. We work with clients across India and globally, managing everything securely online.",
       },
     },
     {

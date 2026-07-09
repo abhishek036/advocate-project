@@ -89,11 +89,26 @@ button {
   opacity: 0.065;
 }
 
-/* Grain on dark sections — 21% is intentional texture */
+/* Grain on dark sections — 17% on #0A0A0A */
 .nd {
   position: relative;
 }
 .nd::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.17;
+}
+
+/* Grain on deep black sections — 21% on #000000 */
+.nd-deep {
+  position: relative;
+}
+.nd-deep::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -514,7 +529,7 @@ button {
 .svc-acc-item:last-child { border-bottom: none; }
 
 /* Trust */
-#trust { background: var(--bk); color: var(--w); padding: 0; position: relative; overflow: hidden; }
+#trust { background: var(--nb); color: var(--w); padding: 0; position: relative; overflow: hidden; }
 .ti { padding: 100px 80px 80px; border-bottom: 1px solid var(--bd); }
 .ti .sey { color: rgba(255,255,255,.38); }
 .ti .sh { color: var(--w); max-width: 740px; }

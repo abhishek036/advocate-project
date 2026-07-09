@@ -26,10 +26,10 @@ const faqJsonLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: "Can you handle my case if I'm living abroad?",
+      name: "Can I manage my case remotely?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Absolutely — RemoteVakil was built for NRI clients. We work with clients in over 40 countries including the UAE, USA, UK, Canada, and Australia. Everything is managed remotely.',
+        text: 'Absolutely. RemoteVakil is built for remote representation. We work with clients across India and globally, managing everything securely online.',
       },
     },
     {
@@ -58,10 +58,10 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'What types of cases do you handle for NRIs?',
+      name: 'What types of cases do you handle?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We handle property disputes, power of attorney registration, inheritance and succession, family law matters (divorce, custody), corporate and startup compliance, and consumer cases — all managed remotely for NRI and foreign clients.',
+        text: 'We handle property disputes, power of attorney registration, inheritance and succession, family law matters (divorce, custody), corporate and startup compliance, and consumer cases — all managed seamlessly online.',
       },
     },
   ],
@@ -72,9 +72,9 @@ const FALLBACK_REVIEWS = [
   {
     _id: 'f1',
     name: 'Suresh R.',
-    role: 'NRI Client',
-    location: 'Dubai → Pune Property Case',
-    body: 'RemoteVakil handled my property dispute end-to-end. I was in Dubai — they managed everything in Pune without a single in-person visit from my side. The weekly updates and encrypted document vault gave me complete peace of mind.',
+    role: 'Client',
+    location: 'Property Case',
+    body: 'RemoteVakil handled my property dispute end-to-end. I was out of state — they managed everything without a single in-person visit from my side. The weekly updates and encrypted document vault gave me complete peace of mind.',
     rating: 5,
     initials: 'SR',
   },
@@ -82,7 +82,7 @@ const FALLBACK_REVIEWS = [
     _id: 'f2',
     name: 'Ananya M.',
     role: 'Business Owner',
-    location: 'Singapore → Mumbai Corporate',
+    location: 'Corporate',
     body: 'We needed multiple vendor agreements and employment contracts drafted in India urgently. RemoteVakil delivered everything within deadlines, communicated in plain English, and never once used legal jargon I didn\'t understand.',
     rating: 5,
     initials: 'AM',
@@ -90,17 +90,17 @@ const FALLBACK_REVIEWS = [
   {
     _id: 'f3',
     name: 'Prabhdeep S.',
-    role: 'NRI Client',
-    location: 'Canada → Punjab Inheritance Matter',
-    body: 'Obtaining a legal heir certificate from abroad felt impossible until I found RemoteVakil. The process was transparent, and the Relationship Manager walked me through every step. Resolved in 6 weeks.',
+    role: 'Client',
+    location: 'Inheritance Matter',
+    body: 'Obtaining a legal heir certificate remotely felt impossible until I found RemoteVakil. The process was transparent, and the Relationship Manager walked me through every step. Resolved in 6 weeks.',
     rating: 5,
     initials: 'PS',
   },
   {
     _id: 'f4',
     name: 'Fatima K.',
-    role: 'NRI Client',
-    location: 'UK → Hyderabad Property',
+    role: 'Client',
+    location: 'Property Dispute',
     body: 'My family had been fighting a builder dispute for two years before I approached RemoteVakil. Within four months, they secured a resolution through a consumer complaint. I only ever attended one video call.',
     rating: 5,
     initials: 'FK',
@@ -108,8 +108,8 @@ const FALLBACK_REVIEWS = [
   {
     _id: 'f5',
     name: 'Rajesh & Kavitha N.',
-    role: 'NRI Clients',
-    location: 'USA → Chennai Family Law',
+    role: 'Clients',
+    location: 'Family Law',
     body: 'The divorce was emotionally difficult enough. What we didn\'t need was a complicated legal process on top of it. RemoteVakil made everything simple, private, and handled with genuine sensitivity. Highly recommended.',
     rating: 5,
     initials: 'RN',
@@ -156,7 +156,7 @@ export default async function Home() {
         <div className="ticker-track">
           {[...Array(3)].map((_, i) => (
             <span key={i} className="ticker-inner">
-              <span>NRI-Trusted Legal Services</span>
+              <span>Trusted Legal Services</span>
               <span className="ticker-dot">·</span>
               <span>4,200+ Cases Resolved</span>
               <span className="ticker-dot">·</span>
