@@ -9,8 +9,8 @@
   --bl:  #E5E5E5;  /* Hairline on white */
   --bd:  rgba(255, 255, 255, 0.10); /* Hairline on dark */
   --r:   4px;      /* Spec: sharp 4px — professional */
-  --sf:  var(--font-bodoni), Georgia, serif;
-  --ss:  var(--font-dm-sans), system-ui, sans-serif;
+  --sf:  var(--font-roboto), system-ui, sans-serif;
+  --ss:  var(--font-roboto), system-ui, sans-serif;
   /* DM Sans weight tokens */
   --w-caption: 300;
   --w-body:    400;

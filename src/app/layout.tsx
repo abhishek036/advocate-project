@@ -1,18 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Bodoni_Moda, DM_Sans } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 
-const bodoniModa = Bodoni_Moda({
+const roboto = Roboto({
+  weight: ['300', '400', '500', '700', '900'],
   subsets: ['latin'],
-  axes: ['opsz'],
-  variable: '--font-bodoni',
-  display: 'swap',
-});
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  axes: ['opsz'],
-  variable: '--font-dm-sans',
+  variable: '--font-roboto',
   display: 'swap',
 });
 
@@ -146,7 +139,7 @@ const faqJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bodoniModa.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${roboto.variable}`}>
       <head>
         <script
           type="application/ld+json"
