@@ -96,11 +96,11 @@ export default async function StudioLoginPage({ searchParams }: Props) {
           <div className="logo">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <circle cx="50" cy="50" r="50" fill="#FFFFFF" fillOpacity="0.08"/>
-              <circle cx="30" cy="22" r="9.5" fill="#FFFFFF"/>
-              <circle cx="30" cy="50" r="9.5" fill="#FFFFFF"/>
-              <circle cx="30" cy="76" r="9.5" fill="#FFFFFF"/>
-              <circle cx="53" cy="76" r="9.5" fill="#FFFFFF"/>
-              <circle cx="76" cy="76" r="9.5" fill="#FFFFFF"/>
+              <circle cx="26" cy="26" r="12" fill="#FFFFFF"/>
+              <circle cx="26" cy="50" r="12" fill="#FFFFFF"/>
+              <circle cx="26" cy="74" r="12" fill="#FFFFFF"/>
+              <circle cx="50" cy="74" r="12" fill="#FFFFFF"/>
+              <circle cx="74" cy="74" r="12" fill="#FFFFFF"/>
             </svg>
             <span>RemoteVakil</span>
           </div>
