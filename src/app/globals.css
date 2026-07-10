@@ -177,12 +177,12 @@ button {
 #nav.scrolled { border-bottom-color: var(--bl); background: rgba(255,255,255,0.92); }
 
 /* Logo lockup */
-.nl-wrap { display: flex; align-items: center; gap: 11px; text-decoration: none; }
-.nl-icon { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); }
+.nl-wrap { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+.nl-icon { width: 26.5px; height: 26.5px; border-radius: 50%; flex-shrink: 0; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); margin-top: -2px; }
 .nl-wrap:hover .nl-icon { transform: scale(1.1) rotate(-6deg); }
 /* Logo wordmark — full 900 at opsz 18; 'Vakil' span just adds amber accent */
-.nl { font-family: var(--sf); font-size: 1.22rem; font-weight: 900; font-optical-sizing: none; font-variation-settings: 'opsz' 18; letter-spacing: .03em; color: var(--nb); line-height: 1; }
-.nl-bold { color: var(--am); }
+.nl { font-family: var(--font-inter, var(--sf)); font-size: 1.22rem; font-weight: 700; font-optical-sizing: none; font-variation-settings: 'opsz' 18; letter-spacing: .03em; color: #16213E; line-height: 1; }
+.nl-bold { color: #16213E; }
 
 .nav-links { display: flex; gap: 40px; list-style: none; }
 .nav-links a { font-size: .79rem; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; color: var(--mu); transition: color .25s; }
