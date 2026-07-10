@@ -42,11 +42,11 @@ export default function Navigation() {
             focusable="false"
           >
             <circle cx="50" cy="50" r="50" fill="#1F1F1F"/>
-            <circle cx="30" cy="30" r="9.4" fill="#FFFFFF"/>
-            <circle cx="30" cy="50" r="9.4" fill="#FFFFFF"/>
-            <circle cx="30" cy="70" r="9.4" fill="#FFFFFF"/>
-            <circle cx="50" cy="70" r="9.4" fill="#FFFFFF"/>
-            <circle cx="70" cy="70" r="9.4" fill="#FFFFFF"/>
+            <circle cx="31.2" cy="31.2" r="9.4" fill="#FFFFFF"/>
+            <circle cx="31.2" cy="50" r="9.4" fill="#FFFFFF"/>
+            <circle cx="31.2" cy="68.8" r="9.4" fill="#FFFFFF"/>
+            <circle cx="50" cy="68.8" r="9.4" fill="#FFFFFF"/>
+            <circle cx="68.8" cy="68.8" r="9.4" fill="#FFFFFF"/>
           </svg>
           <span className="nl">Remote<span className="nl-bold">Vakil</span></span>
         </a>

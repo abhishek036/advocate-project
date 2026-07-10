@@ -71,11 +71,11 @@ export default function Footer() {
         <span className="flo" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{ width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0 }} aria-hidden="true">
             <circle cx="50" cy="50" r="50" fill="#FFFFFF" fillOpacity="0.12"/>
-            <circle cx="30" cy="30" r="9.4" fill="#FFFFFF"/>
-            <circle cx="30" cy="50" r="9.4" fill="#FFFFFF"/>
-            <circle cx="30" cy="70" r="9.4" fill="#FFFFFF"/>
-            <circle cx="50" cy="70" r="9.4" fill="#FFFFFF"/>
-            <circle cx="70" cy="70" r="9.4" fill="#FFFFFF"/>
+            <circle cx="31.2" cy="31.2" r="9.4" fill="#FFFFFF"/>
+            <circle cx="31.2" cy="50" r="9.4" fill="#FFFFFF"/>
+            <circle cx="31.2" cy="68.8" r="9.4" fill="#FFFFFF"/>
+            <circle cx="50" cy="68.8" r="9.4" fill="#FFFFFF"/>
+            <circle cx="68.8" cy="68.8" r="9.4" fill="#FFFFFF"/>
           </svg>
           RemoteVakil
         </span>
