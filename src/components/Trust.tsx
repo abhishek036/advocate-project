@@ -4,6 +4,9 @@ import Image from 'next/image';
 
 export default function Trust() {
   useEffect(() => {
+    const timeouts: NodeJS.Timeout[] = [];
+    const observers: IntersectionObserver[] = [];
+
     ['tl1', 'tl2', 'tl3'].forEach(id => {
       const l = document.getElementById(id);
       if (!l) return;
@@ -11,13 +14,22 @@ export default function Trust() {
       const o = new IntersectionObserver(es => {
         es.forEach(e => {
           if (e.isIntersecting) {
-            li.forEach((x, i) => setTimeout(() => x.classList.add('vis'), i * 130));
+            li.forEach((x, i) => {
+              const t = setTimeout(() => x.classList.add('vis'), i * 130);
+              timeouts.push(t);
+            });
             o.unobserve(e.target);
           }
         });
       }, { threshold: 0.3 });
       o.observe(l);
+      observers.push(o);
     });
+
+    return () => {
+      observers.forEach(o => o.disconnect());
+      timeouts.forEach(t => clearTimeout(t));
+    };
   }, []);
 
   return (

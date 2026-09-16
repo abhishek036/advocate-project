@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -10,12 +10,28 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(null);
     
     try {
       const submitData = new FormData();
@@ -41,29 +57,40 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         }, 3000);
       } else {
         console.error("Form submission failed:", data);
-        alert("Something went wrong. Please try again later.");
+        setErrorMessage(data?.message || "Something went wrong. Please try again later.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Something went wrong. Please check your connection and try again.");
+      setErrorMessage("Something went wrong. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="contact-modal-overlay" onClick={onClose}>
-      <div className="contact-modal-content" onClick={(e) => e.stopPropagation()}>
+    <div className="contact-modal-overlay" onClick={onClose} role="presentation">
+      <div
+        className="contact-modal-content"
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-modal-title"
+      >
         <button className="contact-modal-close" onClick={onClose} aria-label="Close modal">×</button>
         {submitted ? (
           <div className="contact-modal-success">
-            <h3>Thank you!</h3>
+            <h3 id="contact-modal-title">Thank you!</h3>
             <p>Your message has been received. We will get back to you shortly.</p>
           </div>
         ) : (
           <>
-            <h2>Contact Us</h2>
+            <h2 id="contact-modal-title">Contact Us</h2>
             <p>Fill out the form below and we will get back to you.</p>
+            {errorMessage && (
+              <p style={{ color: '#ef4444', fontSize: '0.88rem', marginBottom: '12px' }} role="alert">
+                {errorMessage}
+              </p>
+            )}
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Name</label>

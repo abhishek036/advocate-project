@@ -8,7 +8,8 @@ const STUDIO_PATH = '/studio'
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  if (!pathname.startsWith(STUDIO_PATH) || pathname.startsWith(LOGIN_PATH)) {
+  const isStudio = pathname === STUDIO_PATH || pathname.startsWith(`${STUDIO_PATH}/`)
+  if (!isStudio || pathname.startsWith(LOGIN_PATH)) {
     return NextResponse.next()
   }
 

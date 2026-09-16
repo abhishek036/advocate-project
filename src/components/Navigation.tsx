@@ -24,16 +24,10 @@ export default function Navigation() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  const scrollToCTA = () => {
-    setMenuOpen(false);
-    const el = document.getElementById('ftcta');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   return (
     <>
       <nav id="nav" role="navigation" aria-label="Main navigation" className={scrolled ? 'scrolled' : ''}>
-        <a href="/" className="nl-wrap" aria-label="RemoteVakil — Home">
+        <Link href="/" className="nl-wrap" aria-label="RemoteVakil — Home">
           <svg
             className="nl-icon"
             viewBox="0 0 100 100"
@@ -49,13 +43,22 @@ export default function Navigation() {
             <circle cx="68.8" cy="68.8" r="9.4" fill="#FFFFFF"/>
           </svg>
           <span className="nl">Remote<span className="nl-bold">Vakil</span></span>
-        </a>
+        </Link>
         <ul className="nav-links">
-          <li><a href="/#services">Services</a></li>
-          <li><a href="/#trust">Why Us</a></li>
+          <li><Link href="/#services">Services</Link></li>
+          <li><Link href="/#trust">Why Us</Link></li>
           <li><Link href="/blog">Insights</Link></li>
-          <li><a href="/#faq">FAQ</a></li>
-          <li><a href="#" onClick={(e) => { e.preventDefault(); setContactModalOpen(true); }}>Contact</a></li>
+          <li><Link href="/#faq">FAQ</Link></li>
+          <li>
+            <button
+              type="button"
+              className="nav-link-btn"
+              onClick={() => setContactModalOpen(true)}
+              style={{ background: 'none', border: 'none', font: 'inherit', color: 'inherit', cursor: 'pointer', padding: 0 }}
+            >
+              Contact
+            </button>
+          </li>
         </ul>
         <Link href="/#ftcta" className="nc" id="nav-cta">Consult Now</Link>
 
@@ -77,11 +80,20 @@ export default function Navigation() {
       <div className={`nav-drawer${menuOpen ? ' nav-drawer-open' : ''}`} aria-hidden={!menuOpen}>
         <nav aria-label="Mobile navigation">
           <ul className="nav-drawer-links">
-            <li><a href="/#services" onClick={() => setMenuOpen(false)}>Services</a></li>
-            <li><a href="/#trust" onClick={() => setMenuOpen(false)}>Why Us</a></li>
+            <li><Link href="/#services" onClick={() => setMenuOpen(false)}>Services</Link></li>
+            <li><Link href="/#trust" onClick={() => setMenuOpen(false)}>Why Us</Link></li>
             <li><Link href="/blog" onClick={() => setMenuOpen(false)}>Insights</Link></li>
-            <li><a href="/#faq" onClick={() => setMenuOpen(false)}>FAQ</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setContactModalOpen(true); }}>Contact</a></li>
+            <li><Link href="/#faq" onClick={() => setMenuOpen(false)}>FAQ</Link></li>
+            <li>
+              <button
+                type="button"
+                className="nav-drawer-link-btn"
+                onClick={() => { setMenuOpen(false); setContactModalOpen(true); }}
+                style={{ background: 'none', border: 'none', font: 'inherit', color: 'inherit', cursor: 'pointer', padding: 0, textAlign: 'left', width: '100%' }}
+              >
+                Contact
+              </button>
+            </li>
           </ul>
           <a
             href="https://wa.me/919974772427?text=Hello%2C%20I%20would%20like%20to%20book%20a%20free%20consultation."

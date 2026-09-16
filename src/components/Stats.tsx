@@ -4,16 +4,6 @@ import { useEffect, useRef } from 'react';
 export default function Stats() {
   const statsRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) { runStats(); observer.unobserve(entry.target); }
-      });
-    }, { threshold: 0.5 });
-    if (statsRef.current) observer.observe(statsRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   const runStats = () => {
     const data = [
       { id: 'sv1', n: 4200, s: '+', d: 2000 },
@@ -35,6 +25,16 @@ export default function Stats() {
       requestAnimationFrame(f);
     });
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) { runStats(); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+    if (statsRef.current) observer.observe(statsRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div id="stats" ref={statsRef} role="region" aria-label="Key statistics">

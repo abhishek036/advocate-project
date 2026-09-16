@@ -68,25 +68,28 @@ export default async function BlogIndex() {
               </div>
             ) : (
               <div className="blog-grid">
-                {posts.map((post: any, idx: number) => (
-                  <Link href={`/blog/${post.slug?.current}`} key={post._id} className={`blog-card${idx === 0 ? ' blog-card-featured' : ''}`}>
-                    <div className="blog-card-img-wrap">
-                      {post.mainImage ? (
-                        <Image
-                          src={urlForImage(post.mainImage)?.url() || ''}
-                          alt={post.title}
-                          width={600}
-                          height={400}
-                          loading="lazy"
-                          className="blog-card-img"
-                          style={{ objectFit: 'cover' }}
-                        />
-                      ) : (
-                        <div className="blog-card-img-placeholder">
-                          <span>RV</span>
-                        </div>
-                      )}
-                    </div>
+                {posts.map((post: any, idx: number) => {
+                  const postImageUrl = post.mainImage ? urlForImage(post.mainImage)?.url() : null
+                  const postSlug = post.slug?.current || post._id
+                  return (
+                    <Link href={`/blog/${postSlug}`} key={post._id} className={`blog-card${idx === 0 ? ' blog-card-featured' : ''}`}>
+                      <div className="blog-card-img-wrap">
+                        {postImageUrl ? (
+                          <Image
+                            src={postImageUrl}
+                            alt={post.title}
+                            width={600}
+                            height={400}
+                            loading="lazy"
+                            className="blog-card-img"
+                            style={{ objectFit: 'cover' }}
+                          />
+                        ) : (
+                          <div className="blog-card-img-placeholder">
+                            <span>RV</span>
+                          </div>
+                        )}
+                      </div>
                     <div className="blog-card-body">
                       <div className="blog-card-cats">
                         {post.categories?.map((cat: string) => (
@@ -102,7 +105,8 @@ export default async function BlogIndex() {
                       </div>
                     </div>
                   </Link>
-                ))}
+                )
+              })}
               </div>
             )}
           </div>

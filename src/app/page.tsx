@@ -184,29 +184,33 @@ export default async function Home() {
           <Link href="/blog" className="al rv d2">Read all articles &rarr;</Link>
         </div>
         <div className="mas" role="list">
-          {latestPosts.length > 0 ? latestPosts.map((post: any, idx: number) => (
-            <Link href={`/blog/${post.slug?.current}`} key={post._id} className={`bca rv${idx === 1 ? ' d1' : idx === 2 ? ' d2' : idx === 3 ? ' d1' : ''}`} role="listitem">
-              {post.mainImage && (idx === 0 || idx === 3) && (
-                <div className="bci">
-                  <img src={urlForImage(post.mainImage)?.url() || ''} alt={post.title} loading="lazy" />
+          {latestPosts.length > 0 ? latestPosts.map((post: any, idx: number) => {
+            const postImageUrl = post.mainImage ? urlForImage(post.mainImage)?.url() : null
+            const postSlug = post.slug?.current || post._id
+            return (
+              <Link href={`/blog/${postSlug}`} key={post._id} className={`bca rv${idx === 1 ? ' d1' : idx === 2 ? ' d2' : idx === 3 ? ' d1' : ''}`} role="listitem">
+                {postImageUrl && (idx === 0 || idx === 3) && (
+                  <div className="bci">
+                    <img src={postImageUrl} alt={post.title} loading="lazy" />
+                  </div>
+                )}
+                <div className="bcb">
+                  <div className="bctg">{post.categories?.[0] || 'Legal'}</div>
+                  <h3 className="bcti">{post.title}</h3>
+                  {post.excerpt && <p className="bcd">{post.excerpt}</p>}
+                  <div className="bcm">
+                    <span>{post.authorName || 'RemoteVakil Team'}</span>
+                    {post.readTime && <><span className="bcs" /><span>{post.readTime} min read</span></>}
+                    {post.publishedAt && <><span className="bcs" /><span>{new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span></>}
+                  </div>
                 </div>
-              )}
-              <div className="bcb">
-                <div className="bctg">{post.categories?.[0] || 'Legal'}</div>
-                <h3 className="bcti">{post.title}</h3>
-                {post.excerpt && <p className="bcd">{post.excerpt}</p>}
-                <div className="bcm">
-                  <span>{post.authorName || 'RemoteVakil Team'}</span>
-                  {post.readTime && <><span className="bcs" /><span>{post.readTime} min read</span></>}
-                  {post.publishedAt && <><span className="bcs" /><span>{new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span></>}
-                </div>
-              </div>
-            </Link>
-          )) : (
+              </Link>
+            )
+          }) : (
             <>
               <article className="bca rv" role="listitem"><div className="bci"><img src="/blog_property.webp" alt="Property law" loading="lazy"/></div><div className="bcb"><div className="bctg">Property Law</div><h3 className="bcti">What Every Homebuyer Must Know Before Signing a Builder Agreement</h3><p className="bcd">Builder agreements are rarely buyer-friendly in their draft form. Here are the 7 clauses you must negotiate before the ink dries.</p><div className="bcm"><span>Adv. Priya Mehta</span><span className="bcs"></span><span>8 min read</span></div></div></article>
-              <article className="bca rv d1" role="listitem"><div className="bcb"><div className="bctg">Employment</div><h3 className="bcti">Non-Compete Clauses in India: Enforceable or Unenforceable?</h3><p className="bcd">The Supreme Court's position has evolved. What your current employment contract says — and what it means under Section 27.</p><div className="bcm"><span>Adv. Rohan Sinha</span><span className="bcs"></span><span>5 min read</span></div></div></article>
-              <article className="bca rv d2" role="listitem"><div className="bcb"><div className="bctg">Compliance</div><h3 className="bcti">The 2024 DPDP Act: A Compliance Checklist for Startups</h3><p className="bcd">India's new data protection framework carries significant penalties. The minimum viable compliance framework for early-stage companies.</p><div className="bcm"><span>RemoteVakil Team</span><span className="bcs"></span><span>11 min read</span></div></div></article>
+              <article className="bca rv d1" role="listitem"><div className="bcb"><div className="bctg">Employment</div><h3 className="bcti">Non-Compete Clauses in India: Enforceable or Unenforceable?</h3><p className="bcd">The Supreme Court&apos;s position has evolved. What your current employment contract says — and what it means under Section 27.</p><div className="bcm"><span>Adv. Rohan Sinha</span><span className="bcs"></span><span>5 min read</span></div></div></article>
+              <article className="bca rv d2" role="listitem"><div className="bcb"><div className="bctg">Compliance</div><h3 className="bcti">The 2024 DPDP Act: A Compliance Checklist for Startups</h3><p className="bcd">India&apos;s new data protection framework carries significant penalties. The minimum viable compliance framework for early-stage companies.</p><div className="bcm"><span>RemoteVakil Team</span><span className="bcs"></span><span>11 min read</span></div></div></article>
               <article className="bca rv d1" role="listitem"><div className="bci"><img src="/blog_dispute.webp" alt="Dispute resolution" loading="lazy"/></div><div className="bcb"><div className="bctg">Dispute Resolution</div><h3 className="bcti">Arbitration vs Litigation: Choosing the Right Forum</h3><p className="bcd">Speed, cost, confidentiality, enforceability — four variables that drive your choice. A framework from practitioners.</p><div className="bcm"><span>Adv. Kavya Nair</span><span className="bcs"></span><span>7 min read</span></div></div></article>
             </>
           )}

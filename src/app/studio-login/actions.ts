@@ -7,7 +7,8 @@ const COOKIE_NAME = 'rv_studio_auth'
 
 export async function studioLogin(formData: FormData) {
   const enteredSecret = formData.get('secret') as string
-  const from = (formData.get('from') as string) || '/studio'
+  const rawFrom = (formData.get('from') as string) || '/studio'
+  const from = (rawFrom.startsWith('/') && !rawFrom.startsWith('//')) ? rawFrom : '/studio'
   const STUDIO_SECRET = process.env.STUDIO_SECRET
 
   if (!STUDIO_SECRET || enteredSecret !== STUDIO_SECRET) {

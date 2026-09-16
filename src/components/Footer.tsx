@@ -79,7 +79,7 @@ export default function Footer() {
           </svg>
           RemoteVakil
         </span>
-        <span className="fcp">&copy; 2023 RemoteVakil. All rights reserved. Not a law firm. Legal services facilitated through our verified advocate network.</span>
+        <span className="fcp">&copy; {new Date().getFullYear()} RemoteVakil. All rights reserved. Not a law firm. Legal services facilitated through our verified advocate network.</span>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { urlForImage } from '../../../sanity/lib/image'
 import Navigation from '../../../components/Navigation'
 import Footer from '../../../components/Footer'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
 export const revalidate = 60
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     `*[_type == "post" && slug.current == $slug][0] { title, excerpt, mainImage, publishedAt, _updatedAt }`,
     { slug: resolvedParams.slug }
   )
-  if (!post) return { title: 'Post Not Found' }
+  if (!post) return { title: 'Post Not Found', robots: { index: false } }
   const imageUrl = post.mainImage ? urlForImage(post.mainImage)?.width(1200).height(630).url() : undefined
   return {
     title: post.title,
@@ -58,13 +59,17 @@ export default async function BlogPost({ params }: Props) {
   const post = await client.fetch(query, { slug: resolvedParams.slug })
 
   if (!post) {
-    return (
-      <div className="blog-notfound">
-        <h1>Post not found</h1>
-        <Link href="/blog">← Return to Insights</Link>
-      </div>
-    )
+    notFound()
   }
+
+  const heroImageUrl = post.mainImage ? urlForImage(post.mainImage)?.width(1600).height(700).url() : null
+  const authorImageUrl = post.authorImage ? urlForImage(post.authorImage)?.width(96).height(96).url() : null
+  const formattedDate = post.publishedAt
+    ? (() => {
+        const d = new Date(post.publishedAt)
+        return isNaN(d.getTime()) ? null : d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+      })()
+    : null
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -86,10 +91,10 @@ export default async function BlogPost({ params }: Props) {
       </header>
 
       <main>
-        {post.mainImage && (
+        {heroImageUrl && (
           <div className="post-hero-img">
             <img
-              src={urlForImage(post.mainImage)?.width(1600).height(700).url() || ''}
+              src={heroImageUrl}
               alt={post.title}
               loading="eager"
             />
@@ -107,17 +112,17 @@ export default async function BlogPost({ params }: Props) {
             <h1 className="post-title">{post.title}</h1>
 
             <div className="post-byline">
-              {post.authorImage && (
+              {authorImageUrl && (
                 <img
-                  src={urlForImage(post.authorImage)?.width(96).height(96).url() || ''}
-                  alt={post.authorName}
+                  src={authorImageUrl}
+                  alt={post.authorName || 'Author'}
                   className="post-author-img"
                 />
               )}
               <div>
                 <div className="post-author-name">{post.authorName || 'RemoteVakil Team'}</div>
                 <div className="post-byline-meta">
-                  {post.publishedAt && <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>}
+                  {formattedDate && <span>{formattedDate}</span>}
                   {post.readTime && <><span className="post-sep">·</span><span>{post.readTime} min read</span></>}
                 </div>
               </div>
@@ -131,11 +136,15 @@ export default async function BlogPost({ params }: Props) {
                   value={post.body}
                   components={{
                     types: {
-                      image: ({ value }) => (
-                        <figure className="post-figure">
-                          <img src={urlForImage(value)?.url() || ''} alt="Article image" loading="lazy" />
-                        </figure>
-                      )
+                      image: ({ value }) => {
+                        const imgUrl = value ? urlForImage(value)?.url() : null
+                        if (!imgUrl) return null
+                        return (
+                          <figure className="post-figure">
+                            <img src={imgUrl} alt={value.alt || "Article image"} loading="lazy" />
+                          </figure>
+                        )
+                      }
                     },
                     block: {
                       h2: ({ children }) => <h2 className="post-h2">{children}</h2>,

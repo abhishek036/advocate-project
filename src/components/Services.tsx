@@ -184,12 +184,15 @@ export default function Services() {
       {/* Desktop layout */}
       <div className="svc-layout rv d2 vis">
         <div className="svc-list-wrap">
-          <div className="svc-list" ref={listRef}>
+          <div className="svc-list" ref={listRef} role="tablist" aria-label="Services list">
             <div className="svc-pill" ref={markerRef} aria-hidden="true" />
             {SERVICES.map((svc) => (
               <button
                 key={svc.id}
                 data-svcid={svc.id}
+                role="tab"
+                id={`svc-tab-${svc.id}`}
+                aria-controls="svc-panel"
                 className={`svc-btn${svc.id === activeId ? ' svc-btn-active' : ''}`}
                 onClick={() => setActiveId(svc.id)}
                 type="button"
@@ -203,7 +206,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="svc-panel" key={activeId} aria-live="polite">
+        <div className="svc-panel" id="svc-panel" role="tabpanel" aria-labelledby={`svc-tab-${activeId}`} key={activeId} aria-live="polite">
           <div className="svc-panel-top">
             <div className="svc-panel-num-badge">{activeService.num}</div>
             <h3 className="svc-panel-title">{activeService.tag}</h3>

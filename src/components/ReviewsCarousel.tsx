@@ -21,33 +21,35 @@ const AUTO_INTERVAL = 5000;
 
 export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
   const [active, setActive] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
   const [dir, setDir] = useState<'next' | 'prev'>('next');
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const total = reviews.length;
+  const total = reviews?.length ?? 0;
 
   const goTo = (idx: number, direction: 'next' | 'prev' = 'next') => {
-    setPrev(active);
     setDir(direction);
     setActive(idx);
   };
 
-  const next = () => goTo((active + 1) % total, 'next');
-  const back = () => goTo((active - 1 + total) % total, 'prev');
   useEffect(() => {
     if (paused || total < 2) return;
-    timerRef.current = setTimeout(next, AUTO_INTERVAL);
-    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+    timerRef.current = setTimeout(() => {
+      goTo((active + 1) % total, 'next');
+    }, AUTO_INTERVAL);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
   }, [active, paused, total]);
+
   useEffect(() => {
+    if (total < 2) return;
     const h = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft') back();
+      if (e.key === 'ArrowRight') goTo((active + 1) % total, 'next');
+      if (e.key === 'ArrowLeft') goTo((active - 1 + total) % total, 'prev');
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, [active]);
+  }, [active, total]);
 
   if (!reviews || total === 0) return null;
 
@@ -143,7 +145,7 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
           <div className="rev-arrows">
             <button
               className="rev-arrow"
-              onClick={back}
+              onClick={() => goTo((active - 1 + total) % total, 'prev')}
               aria-label="Previous review"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -152,7 +154,7 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
             </button>
             <button
               className="rev-arrow"
-              onClick={next}
+              onClick={() => goTo((active + 1) % total, 'next')}
               aria-label="Next review"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">

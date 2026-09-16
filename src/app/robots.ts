@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/studio/', '/studio-login/'],
+      disallow: ['/studio', '/studio-login'],
     },
     sitemap: 'https://remotevakil.com/sitemap.xml',
   }

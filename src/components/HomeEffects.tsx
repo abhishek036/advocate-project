@@ -1,9 +1,7 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 export default function HomeEffects() {
-  const mwRef = useRef<HTMLDivElement>(null);
-  const mbRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const ro = new IntersectionObserver(es => {
